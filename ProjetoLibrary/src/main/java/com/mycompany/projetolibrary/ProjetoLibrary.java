@@ -43,7 +43,13 @@ class Buffer<Object> {
         return buffer.size();
     }
 
-    public void substituirElemento(int posicao, Object novoElemento) {
+    public void substituirElemento() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Posicao do elemento a substituir: ");
+        int posicao = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Novo elemento: ");
+        Object novoElemento = (Object) sc.nextLine();
 
         if (posicao >= 0 && posicao < buffer.size()) {
             buffer.set(posicao, novoElemento);
@@ -158,12 +164,7 @@ class Menus {
 
                         case 4:
                             //Substitui elemento
-                            System.out.println("Posicao do elemento a substituir: ");
-                            int posicaoSubstituir = sc.nextInt();
-                            sc.nextLine();
-                            System.out.println("Novo elemento: ");
-                            Object novoElementoBuff = sc.nextLine();
-                            buffFifo.substituirElemento(posicaoSubstituir, novoElementoBuff);
+                            buffFifo.substituirElemento();
                             break;
 
                         case 5:
@@ -216,12 +217,7 @@ class Menus {
 
                         case 4:
                             //Substitui elemento
-                            System.out.println("Posicao do elemento a substituir: ");
-                            int posicaoSubstituir = sc.nextInt();
-                            sc.nextLine();
-                            System.out.println("Novo elemento: ");
-                            Object novoElementoBuff = sc.nextLine();
-                            buffLifo.substituirElemento(posicaoSubstituir, novoElementoBuff);
+                            buffLifo.substituirElemento();
                             break;
 
                         case 5:
