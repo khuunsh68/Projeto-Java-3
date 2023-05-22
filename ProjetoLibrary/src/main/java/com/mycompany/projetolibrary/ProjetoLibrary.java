@@ -9,6 +9,8 @@ import java.util.*;
  *
  * @author goncalo farias
  */
+
+// Class Main dos Buffers
 class Buffer<Object> {
 
     protected LinkedList<Object> buffer = new LinkedList<>();
@@ -24,7 +26,7 @@ class Buffer<Object> {
         return null;
     }
 
-    // Método que mostra elements do buffer
+    // Método que mostra elementos do buffer
     public void mostrarElementos() {
         System.out.println("Buffer atualizado: ");
         for (int i = 0; i < buffer.size(); i++) {
@@ -43,6 +45,7 @@ class Buffer<Object> {
         return buffer.size();
     }
 
+    // Método que substitui elementos de posições
     public void substituirElemento() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Posicao do elemento a substituir: ");
@@ -60,6 +63,7 @@ class Buffer<Object> {
     }
 }
 
+// Buffer FIFO
 class BuffFIFO<Object> extends Buffer<Object> {
 
     // Método que adiciona elementos ao buffer
@@ -80,6 +84,7 @@ class BuffFIFO<Object> extends Buffer<Object> {
 
 }
 
+// Buffer LIFO
 class BuffLIFO<Object> extends Buffer<Object> {
 
     // Método que adiciona elementos ao buffer
@@ -99,6 +104,7 @@ class BuffLIFO<Object> extends Buffer<Object> {
     }
 }
 
+// Classe que contêm toda a informação relativa aos menus
 class Menus {
 
     // Método que contém o menu da aplicação
@@ -137,50 +143,53 @@ class Menus {
                 BuffFIFO<Object> buffFifo = new BuffFIFO<>();
                 int opcaoMenu;
                 do {
+                    // Print do menu e escolha da opção
                     opcaoMenu = menuPrincipal(sc);
                     sc.nextLine();
 
                     switch (opcaoMenu) {
                         case 1:
-                            //Adiciona elemento
+                            // Adiciona elemento
                             System.out.print("Digite o elemento que deseja inserir: ");
                             Object elemento;
                             elemento = sc.nextLine();
 
-                            //Coloca os elementos no buffer
+                            // Coloca os elementos no buffer
                             buffFifo.addElemento(elemento);
                             break;
 
                         case 2:
-                            //Remove elemento
+                            // Remove elemento
                             Object elementoFifo = buffFifo.removeElemento();
                             System.out.println("Elemento removido: " + elementoFifo);
                             break;
 
                         case 3:
-                            //Mostrar elementos do buffer
+                            // Mostrar elementos do buffer
                             buffFifo.mostrarElementos();
                             break;
 
                         case 4:
-                            //Substitui elemento
+                            // Substitui elemento
                             buffFifo.substituirElemento();
                             break;
 
                         case 5:
-                            //Limpa Buffer
+                            // Limpa Buffer
                             buffFifo.limpaBuffer();
                             break;
 
                         case 6:
-                            //Verifica tamanho
+                            // Verifica tamanho
                             System.out.println("Tamanho do buffer: " + buffFifo.tamanho());
                             break;
 
                         case 7:
+                            // Opção que sai do Menu
                             break;
 
                         default:
+                            // Opção inválida dá print a mensagem de erro
                             System.out.println("Opcao invalida!Tente novamente!");
                     }
                 } while (opcaoMenu != 7);
@@ -190,58 +199,63 @@ class Menus {
                 BuffLIFO<Object> buffLifo = new BuffLIFO<>();
                 int opcaoMenu2;
                 do {
+                    // Print do menu e escolha da opção
                     opcaoMenu2 = menuPrincipal(sc);
                     sc.nextLine();
 
                     switch (opcaoMenu2) {
                         case 1:
-                            //Adiciona elemento
+                            // Adiciona elemento
                             System.out.print("Digite o elemento que deseja inserir: ");
                             Object elemento;
                             elemento = sc.nextLine();
 
-                            //Coloca os elementos no buffer
+                            // Coloca os elementos no buffer
                             buffLifo.addElemento(elemento);
                             break;
 
                         case 2:
-                            //Remove elemento
+                            // Remove elemento
                             Object elementoFifo = buffLifo.removeElemento();
                             System.out.println("Elemento removido: " + elementoFifo);
                             break;
 
                         case 3:
-                            //Mostra elementos do buffer
+                            // Mostra elementos do buffer
                             buffLifo.mostrarElementos();
                             break;
 
                         case 4:
-                            //Substitui elemento
+                            // Substitui elemento
                             buffLifo.substituirElemento();
                             break;
 
                         case 5:
-                            //Limpa Buffer
+                            // Limpa Buffer
                             buffLifo.limpaBuffer();
                             break;
 
                         case 6:
-                            //Verifica tamanho
+                            // Verifica tamanho
                             System.out.println("Tamanho do buffer: " + buffLifo.tamanho());
                             break;
 
                         case 7:
+                            // Opção que sai do Menu
                             break;
 
                         default:
+                            // Opção inválida dá print a mensagem de erro
                             System.out.println("Opcao invalida!Tente novamente!");
                     }
                 } while (opcaoMenu2 != 7);
                 break;
             case 3:
+                // Opção que sai do menu inicial
                 break;
             default:
-                System.out.println("Opcao invalida! Escolha uma opcao valida!");
+                // Menssagem de erro no caso de opção errada
+                System.out.println("Opcao invalida!");
                 break;
         }
     }
